@@ -29,8 +29,9 @@ export const search = (req, res) => {
     if(program) {
         results = results.filter(el => el.programs.includes(program));
     }
-    if (open) {
-        results = results.filter(el => el.open === open);
+    if (open !== undefined) {
+      const openBool = open === "true"
+        results = results.filter(el => el.open === openBool);
     }
     if (city) {
         results = results.filter(el => el.city === city);
